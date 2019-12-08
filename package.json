@@ -1,0 +1,56 @@
+{
+  "name": "fancy-weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "author": "luckytiger1",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.7.5",
+    "babel-loader": "^8.0.6",
+    "brotli-webpack-plugin": "^1.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.1",
+    "cssnano": "^4.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "file-loader": "^5.0.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^1.19.1",
+    "purgecss-webpack-plugin": "^1.6.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
+    "terser-webpack-plugin": "^2.2.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --open --config=config/webpack.dev.js",
+    "build": "webpack --config=config/webpack.prod.js"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "@material/fab": "^4.0.0",
+    "@material/textfield": "^4.0.0",
+    "core-js": "3"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie <= 9",
+    "last 2 versions"
+  ]
+}

@@ -20,7 +20,7 @@ export default class Time {
       hourCycle: "h24"
     };
     const newDate = new Date();
-
+    this.checkLocale();
     const dData = newDate.toLocaleDateString(language.locale, options);
     const date = dData.split(",");
     console.log(dData);
@@ -48,6 +48,18 @@ export default class Time {
           weekday: "long"
         }
       );
+    }
+  }
+
+  checkLocale() {
+    if (language.russian) {
+      language.locale = "ru-RU";
+    } else if (language.english) {
+      language.locale = "en-US";
+    } else if (language.belarusian) {
+      language.locale = "be-BY";
+    } else {
+      language.locale = "en-US";
     }
   }
 }

@@ -5,8 +5,11 @@ export default class Speech {
     const recognition = new SpeechRecognition();
     recognition.lang = "ru-RU";
     recognition.interimResults = true;
-    const audio = new Audio("./alert.mp3");
+    const audio = new Audio(
+      "https://www.pacdv.com/sounds/interface_sound_effects/beep-3.wav"
+    );
     audio.play();
+
     document
       .querySelector(".mdc-floating-label")
       .classList.add("mdc-floating-label--float-above");

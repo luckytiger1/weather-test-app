@@ -109,7 +109,8 @@ export default class Language {
       language.lang = "en";
     } else if (language.belarusian) {
       language.lang = "be";
+    } else {
+      language.lang = "en";
     }
-    language.lang = "en";
   }
 }

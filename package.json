@@ -40,7 +40,8 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --open --config=config/webpack.dev.js",
-    "build": "webpack --config=config/webpack.prod.js"
+    "build": "webpack --config=config/webpack.prod.js",
+    "lint": "eslint **/*.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",

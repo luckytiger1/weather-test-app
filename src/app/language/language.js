@@ -17,10 +17,6 @@ export default class Language {
         // language.lang = "ru";
         this.translateText(1);
         this.changeState("ru");
-        console.log(`language.russian value is ${language.russian}`);
-        console.log(`language.english value is ${language.english}`);
-        console.log(`language.belarusian value is ${language.belarusian}`);
-        console.log(`language.lang value is ${language.lang}`);
         break;
       }
       case "en": {
@@ -28,11 +24,6 @@ export default class Language {
         language.lang = "en";
         this.translateText(0);
         this.changeState("en");
-        console.log(`language.russian value is ${language.russian}`);
-        console.log(`language.english value is ${language.english}`);
-        console.log(`language.belarusian value is ${language.belarusian}`);
-        console.log(`language.lang value is ${language.lang}`);
-
         break;
       }
       case "be": {
@@ -40,11 +31,6 @@ export default class Language {
         language.lang = "be";
         this.translateText(2);
         this.changeState("be");
-        console.log(`language.russian value is ${language.russian}`);
-        console.log(`language.english value is ${language.english}`);
-        console.log(`language.belarusian value is ${language.belarusian}`);
-        console.log(`language.lang value is ${language.lang}`);
-
         break;
       }
       default:
@@ -57,7 +43,6 @@ export default class Language {
     [].forEach.call(langBtn, el => {
       el.classList.remove("active");
     });
-    console.log(`language lang on click ===> ${language.lang}`);
 
     document.querySelector(`#${n}`).classList.add("active");
   }

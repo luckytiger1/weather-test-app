@@ -1,9 +1,13 @@
+import { language } from "../utils/variables";
+
 /* eslint-disable class-methods-use-this */
 export default class Speech {
   speechToText() {
-    const SpeechRecognition = window.webkitSpeechRecognition;
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
-    recognition.lang = "ru-RU";
+
+    this.setRecognitionLang(recognition);
     recognition.interimResults = true;
     const audio = new Audio(
       "https://www.pacdv.com/sounds/interface_sound_effects/beep-3.wav"
@@ -22,6 +26,7 @@ export default class Speech {
     document.querySelector(".mdc-notched-outline__notch").style.width =
       "55.25px";
     const inputArea = document.querySelector("#text-field-hero-input");
+
     recognition.addEventListener("result", e => {
       const transcript = Array.from(e.results)
         .map(result => result[0])
@@ -29,9 +34,17 @@ export default class Speech {
         .join("");
 
       inputArea.value = transcript;
-      console.log(transcript);
       recognition.addEventListener("end", recognition.stop());
     });
     recognition.start();
+  }
+
+  setRecognitionLang(recognition) {
+    const speech = recognition;
+    if (language.russian || language.belarusian) {
+      speech.lang = "ru-RU";
+    } else if (language.english) {
+      speech.lang = "en-US";
+    }
   }
 }

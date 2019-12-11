@@ -1,11 +1,12 @@
 /* eslint-disable class-methods-use-this */
-import { language } from "../utils/variables";
+import { language, coords } from "../utils/variables";
 import Address from "../address/address";
 import Weather from "../weather/weather";
 import Background from "../background/background";
 import Speech from "../speech/speech";
 import Degree from "../weather/degree";
 import Language from "../language/language";
+import Map from "../map/map";
 
 export default class EventHandler {
   constructor() {
@@ -15,6 +16,7 @@ export default class EventHandler {
     this.speech = new Speech();
     this.degree = new Degree();
     this.language = new Language();
+    this.map = new Map();
   }
 
   langHandler() {
@@ -59,9 +61,7 @@ export default class EventHandler {
 
   bgHandler() {
     document.querySelector("#bg-change").addEventListener("click", () => {
-      const lng = parseFloat(document.querySelector(".longitude").textContent);
-      const lat = parseFloat(document.querySelector(".latitude").textContent);
-      this.background.setBackground(lat, lng);
+      this.background.setBackground(coords.lat, coords.lng);
     });
   }
 
@@ -81,19 +81,17 @@ export default class EventHandler {
   }
 
   langBtn(lang, n) {
-    const lng = parseFloat(document.querySelector(".longitude").textContent);
-    const lat = parseFloat(document.querySelector(".latitude").textContent);
+    this.address.showCoords(
+      document.querySelector(".longitude").innerHTML,
+      document.querySelector(".latitude").innerHTML
+    );
     this.language.changeLangFlag(lang);
     this.language.changeState(lang);
     this.language.translateText(n);
-    this.weather.setWeatherInfo(lat, lng);
-    this.address.setAddress(language.lang, lat, lng);
+    this.weather.setWeatherInfo(coords.lat, coords.lng);
+    this.address.setAddress(language.lang, coords.lat, coords.lng);
     localStorage.setItem("lang", `${lang}`);
-    console.log(`on ${lang} click: ${lat} and ${lng}`);
-    console.log(
-      `localstorage lang on ${lang} click is ${localStorage.getItem("lang")}`
-    );
-    console.log(`language lang on ${lang} click is ${language.lang}`);
+    console.log(`language locale is ${language.locale}`);
   }
 
   speechHandler() {

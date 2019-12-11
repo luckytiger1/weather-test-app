@@ -8,21 +8,18 @@ export default class Degree {
       case "cel": {
         degreeVar.celsius = true;
         this.changeState("cel");
-        console.log(`degreeVar celsius value is ${degreeVar.celsius}`);
-        console.log(`degreeVar fahrenheit value is ${degreeVar.fahrenheit}`);
         break;
       }
       case "fahr": {
         degreeVar.fahrenheit = true;
         this.changeState("fahr");
-        console.log(`degreeVar celsius value is ${degreeVar.celsius}`);
-        console.log(`degreeVar fahrenheit value is ${degreeVar.fahrenheit}`);
         break;
       }
       default:
     }
   }
 
+  // Add 'active' class to active element
   changeState(n) {
     const degreeBtn = document.querySelectorAll(".degree-btn");
     [].forEach.call(degreeBtn, el => {

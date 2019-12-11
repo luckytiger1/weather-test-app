@@ -22,6 +22,7 @@ class App {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.getWeather.bind(this));
     } else {
+      // eslint-disable-next-line no-console
       console.log("Geolocation is not supported by this browser.");
     }
   }
@@ -44,6 +45,7 @@ class App {
     this.handler.inputHandler();
     this.handler.speechHandler();
     this.handler.onLoad();
+    this.handler.bgHandler();
   }
 }
 const app = new App();

@@ -11,7 +11,7 @@ export default class Background {
     const dayTime = this.checkDayOrNight();
     const apiKey =
       "b481b89c0ee2f5f32cf18d3b49e966275b9a5bce2cd7926f8902610eef4929a1";
-    const url = `https://api.unsplash.com/photos/random?query=nature&${weatherInfo}&${season}&${dayTime}&orientation=landscape&client_id=${apiKey}`;
+    const url = `https://api.unsplash.com/photos/random?query=nature,${weatherInfo},${season},${dayTime}&orientation=landscape&client_id=${apiKey}`;
     const response = await fetch(url);
     const data = await response.json();
 

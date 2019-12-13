@@ -72,6 +72,8 @@ html {
       background: $color;
       text-decoration: none;
       border-radius: 2px;
+      animation: pulse 2s infinite;
+
       &:hover {
         box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
           0px 8px 10px 1px rgba(0, 0, 0, 0.14),
@@ -176,6 +178,18 @@ html {
   @include mdc-fab-extended-shape-radius($radius);
   &--extended {
     height: 100%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 

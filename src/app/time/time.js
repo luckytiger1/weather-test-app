@@ -47,7 +47,6 @@ export default class Time {
           }
         );
       } else if (language.locale === "be-BY") {
-        console.log(`weekday is ${new Date().getDay() + i + 1}`);
         if (new Date().getDay() + i + 1 > 6) {
           days[i].textContent = beLongDay[(new Date().getDay() + i) % 6];
         } else {

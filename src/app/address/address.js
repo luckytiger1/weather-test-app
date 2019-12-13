@@ -82,4 +82,11 @@ export default class Address {
       myJson.results[0].geometry.lng
     );
   }
+
+  async getCoords() {
+    const url = "https://ipinfo.io?token=6c0d24cfba6e13";
+    const response = await fetch(url);
+    const myJson = await response.json();
+    return myJson;
+  }
 }

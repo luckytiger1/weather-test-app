@@ -3,8 +3,7 @@ import { language } from "../utils/variables";
 /* eslint-disable class-methods-use-this */
 export default class Speech {
   speechToText() {
-    const SpeechRecognition =
-      window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognition = window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
 
     this.setRecognitionLang(recognition);

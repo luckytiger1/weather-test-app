@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import "../assets/styles/style.scss";
 import { MDCTextField } from "@material/textfield";
 import View from "./view/view";
@@ -15,25 +16,45 @@ class App {
     this.map = new Map();
     this.address = new Address();
     this.handler = new EventHandler();
-    // this.app = new App();
   }
 
   getLoc() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.getWeather.bind(this));
+      navigator.geolocation.getCurrentPosition(
+        this.getWeather.bind(this),
+        this.error.bind(this)
+      );
     } else {
       // eslint-disable-next-line no-console
       console.log("Geolocation is not supported by this browser.");
     }
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  async error() {
+    const response = await this.address.getCoords();
+    const loc = response.loc.split(",");
+    const coords = {
+      latitude: loc[0],
+      longitude: loc[1]
+    };
+    this.getWeather(coords);
+  }
+
   getWeather(position) {
-    const { latitude } = position.coords;
-    const { longitude } = position.coords;
+    let latitude;
+    let longitude;
+    if (position.coords) {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+    } else {
+      latitude = position.latitude;
+      longitude = position.longitude;
+    }
     this.weather.setWeatherInfo(latitude, longitude);
     this.map.initMap(latitude, longitude);
-    // eslint-disable-next-line no-restricted-globals
-    this.address.setAddress(language.lang, latitude, longitude, location);
+
+    this.address.setAddress(language.lang, latitude, longitude);
     this.bg.setBackground(latitude, longitude);
   }
 
@@ -50,10 +71,7 @@ class App {
 }
 const app = new App();
 
-// eslint-disable-next-line no-unused-vars
 const view = new View();
-// const news = new News();
-// eslint-disable-next-line no-unused-vars
 const textField = new MDCTextField(document.querySelector(".mdc-text-field"));
 
 app.init();

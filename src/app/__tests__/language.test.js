@@ -23,8 +23,13 @@ describe("Language module", () => {
     expect(language.locale).toBe("ru-RU");
   });
 
-  test("Expected language locale not to be en-US", () => {
+  test("Expected language locale to be be-BY", () => {
     lang.changeLangFlag("be");
-    expect(language.locale).not.toBe("en-US");
+    expect(language.locale).toBe("be-BY");
+  });
+
+  test("Expected language locale to be en-US", () => {
+    lang.changeLangFlag("en");
+    expect(language.locale).toBe("en-US");
   });
 });

@@ -1,5 +1,4 @@
 /* eslint-disable class-methods-use-this */
-/* eslint-disable no-undef */
 import { degreeVar } from "../utils/variables";
 
 export default class Degree {

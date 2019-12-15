@@ -1,12 +1,13 @@
 /* eslint-disable class-methods-use-this */
-/* eslint-disable no-undef */
 import {
   language,
   feelsLikeData,
   windData,
   humidityData,
   latitudeData,
-  longitudeData
+  longitudeData,
+  searchData,
+  locationTranslation
 } from "../utils/variables";
 
 export default class Language {
@@ -14,7 +15,7 @@ export default class Language {
     switch (lang) {
       case "ru": {
         language.russian = true;
-        // language.lang = "ru";
+        language.lang = "ru";
         this.translateText(1);
         this.changeState("ru");
         break;
@@ -77,13 +78,17 @@ export default class Language {
       document.querySelector(".windTitle").textContent,
       document.querySelector(".humidityTitle").textContent,
       document.querySelector(".latitudeTitle").textContent,
-      document.querySelector(".longitudeTitle").textContent
+      document.querySelector(".longitudeTitle").textContent,
+      document.querySelector(".mdc-fab__label").textContent,
+      document.querySelector(".mdc-floating-label").textContent
     ] = [
       feelsLikeData[n].toUpperCase(),
       windData[n].toUpperCase(),
       humidityData[n].toUpperCase(),
       latitudeData[n].toUpperCase(),
-      longitudeData[n].toUpperCase()
+      longitudeData[n].toUpperCase(),
+      searchData[n].toUpperCase(),
+      locationTranslation[n]
     ];
   }
 

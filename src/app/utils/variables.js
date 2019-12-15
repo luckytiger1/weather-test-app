@@ -45,6 +45,8 @@ const windData = ["Wind", "Ветер", "Вецер"];
 const humidityData = ["Humidity", "Влажность", "вільготнасць"];
 const latitudeData = ["latitude", " широта", "шырата"];
 const longitudeData = ["longitude", " долгота", "даўгата"];
+const searchData = ["search", " поиск", "пошук"];
+const locationTranslation = ["Location", "Местоположение", "Месцазнаходжання"];
 export {
   feelsLikeData,
   windData,
@@ -55,6 +57,8 @@ export {
   degreeVar,
   coords,
   weatherSummary,
+  searchData,
+  locationTranslation,
   beShortDay,
   beLongDay,
   beLongMonth

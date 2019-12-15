@@ -74,8 +74,7 @@ export default class EventHandler {
       .querySelector("#text-field-hero-input")
       .addEventListener("keydown", e => {
         if (e.keyCode === 13) {
-          const loc = document.querySelector(".mdc-text-field__input").value;
-          this.address.reverseLocation(language.lang, loc);
+          document.querySelector(".mdc-fab").click();
         }
       });
   }
@@ -91,7 +90,6 @@ export default class EventHandler {
     this.weather.setWeatherInfo(coords.lat, coords.lng);
     this.address.setAddress(language.lang, coords.lat, coords.lng);
     localStorage.setItem("lang", `${lang}`);
-    console.log(`language locale is ${language.locale}`);
   }
 
   speechHandler() {

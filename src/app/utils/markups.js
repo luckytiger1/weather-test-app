@@ -51,13 +51,17 @@ export const searchBlockMarkup = `
     </div>
 `;
 export const currentLocationBlockMarkup = `
-    <div class="current-location-block__title"></div>
+    <div class="current-location-block__title">
+    <span class = "current-location-block__title-city" ></span>,
+    <span class = "current-location-block__title-country"></span>
+    </div>
     <div class="current-location-block__date-container">
     <div class="current-location-block__date-container--date"></div>
     <div class="current-location-block__date-container--time"></div>
     </div>
     <div class="current-location-block__info-wrapper">
-    <div class="current-location-block__info-wrapper--temp"></div>
+    <div class="current-location-block__info-wrapper--temp">
+    </div>
     <div class="text-icon__container">
         <canvas id="icon1" width="100" height="100"></canvas>
         <div class="current-location-block__info-wrapper--text">

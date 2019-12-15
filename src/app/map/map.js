@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
-/* eslint-disable no-undef */
+/* global google */
 import styles from "./map-styles";
 import Language from "../language/language";
 
@@ -14,10 +15,13 @@ export default class Map {
       zoom: 12,
       styles
     });
-    // eslint-disable-next-line no-unused-vars
+
     const marker = new google.maps.Marker({
       position: { lat: parseFloat(latData), lng: parseFloat(longData) },
       map
     });
+
+    const input = document.querySelector("#text-field-hero-input");
+    const autoComplete = new google.maps.places.Autocomplete(input);
   }
 }

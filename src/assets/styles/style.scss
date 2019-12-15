@@ -28,7 +28,6 @@ html {
     display: flex;
     .mdc-text-field {
       height: 57px;
-      // @include mdc-text-field-outlined-with-leading-icon-height($height);
       display: flex;
       @include mdc-text-field-outline-color($textAreaColor);
       @include mdc-text-field-ink-color($textAreaColor);
@@ -85,6 +84,16 @@ html {
     background-color: rgba(255, 255, 255, 0.8);
   }
 }
+#loading-icon {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(http://smallenvelop.com/demo/simple-pre-loader/images/loader-64x/Preloader_2.gif)
+    center no-repeat #fff;
+}
 
 .main-info {
   margin-top: 5%;
@@ -115,7 +124,7 @@ html {
       display: flex;
       &--temp {
         @include city();
-        font-size: 240px;
+        font-size: 12rem;
         line-height: 240px;
       }
       #icon1 {
@@ -146,7 +155,7 @@ html {
   @include city();
   line-height: unset;
   font-size: 20px;
-  // justify-content: space-between;
+  justify-content: space-between;
   &__title {
     padding-bottom: 20px;
   }
@@ -213,7 +222,6 @@ html {
     }
   }
   .three-days-block {
-    justify-content: space-between;
     &__container1,
     &__container2,
     &__container3 {
@@ -223,9 +231,6 @@ html {
 }
 
 @media (max-width: 770px) {
-  .current-location-block__info-wrapper {
-    flex-direction: row;
-  }
   .weather__container {
     flex-direction: column;
   }

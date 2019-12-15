@@ -30,15 +30,20 @@ export default class Address {
 
   async setAddress(lang, lat, lng, location) {
     const myJson = await this.getAddress(lang, lat, lng, location);
-    const city = document.querySelector(".current-location-block__title");
+    const city = document.querySelector(".current-location-block__title-city");
+    const country = document.querySelector(
+      ".current-location-block__title-country"
+    );
 
-    if (myJson.results[0].components.city) {
-      city.innerHTML = `${myJson.results[0].components.city}, ${myJson.results[0].components.country}`;
-    } else if (myJson.results[0].components.county) {
-      city.innerHTML = `${myJson.results[0].components.county}, ${myJson.results[0].components.country}`;
-    } else {
-      city.innerHTML = `${myJson.results[0].components.state}, ${myJson.results[0].components.country}`;
-    }
+    city.innerHTML =
+      myJson.results[0].components.city ||
+      myJson.results[0].components.town ||
+      myJson.results[0].components.village ||
+      myJson.results[0].components.county ||
+      myJson.results[0].components.state;
+    country.innerHTML =
+      myJson.results[0].components.country ||
+      myJson.results[0].components.state;
 
     this.time.setTime(myJson.results[0].annotations.timezone.name);
     this.showCoords(

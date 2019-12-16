@@ -34,6 +34,7 @@ export default class Address {
     const country = document.querySelector(
       ".current-location-block__title-country"
     );
+    console.log(myJson);
 
     city.innerHTML =
       myJson.results[0].components.city ||
@@ -67,25 +68,28 @@ export default class Address {
     const url = `https://api.opencagedata.com/geocode/v1/json?language=en&q=${location}&key=3a2037453ead4e659f98e482b785428b`;
     const response = await fetch(url);
     const myJson = await response.json();
-
-    this.time.setTime(myJson.results[0].annotations.timezone.name);
-    this.background.setBackground(
-      myJson.results[0].geometry.lat,
-      myJson.results[0].geometry.lng
-    );
-    this.weather.setWeatherInfo(
-      myJson.results[0].geometry.lat,
-      myJson.results[0].geometry.lng
-    );
-    this.setAddress(
-      lang,
-      myJson.results[0].geometry.lat,
-      myJson.results[0].geometry.lng
-    );
-    this.map.initMap(
-      myJson.results[0].geometry.lat,
-      myJson.results[0].geometry.lng
-    );
+    if (myJson.results[0] !== undefined) {
+      this.time.setTime(myJson.results[0].annotations.timezone.name);
+      this.background.setBackground(
+        myJson.results[0].geometry.lat,
+        myJson.results[0].geometry.lng
+      );
+      this.weather.setWeatherInfo(
+        myJson.results[0].geometry.lat,
+        myJson.results[0].geometry.lng
+      );
+      this.setAddress(
+        lang,
+        myJson.results[0].geometry.lat,
+        myJson.results[0].geometry.lng
+      );
+      this.map.initMap(
+        myJson.results[0].geometry.lat,
+        myJson.results[0].geometry.lng
+      );
+    } else {
+      console.log(`Can't find location, try again.`);
+    }
   }
 
   async getCoords() {

@@ -34,7 +34,6 @@ export default class Address {
     const country = document.querySelector(
       ".current-location-block__title-country"
     );
-    console.log(myJson);
 
     city.innerHTML =
       myJson.results[0].components.city ||
